@@ -25,24 +25,30 @@ ctx.lineWidth= 3
 ctx.fillStyle="white";
 ctx.fill()
 
+grad =ctx.createRadialGradient(0,0,radius*0.90, 0,0,radius*1.05);
+  grad.addColorStop(0, "black");
+  grad.addColorStop(0.5, "white");
+  grad.addColorStop(1, "black");
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+
 // middle circle
 ctx.beginPath();
-ctx.arc(0,0,radius*.085, 0, Math.PI*2)
+ctx.arc(0,0,radius*.075, 0, Math.PI*2)
 ctx.fillStyle= "black"
 ctx.fill()
 
-
-
-}
-window.onload=function() {
-ctx.drawImage(canvasImg, 0, 0);
-}
 // Draw Hand
-
+}
 function drawNumber(ctx, radius){
     var angle;
 
-    ctx.font= radius*0.2 + "px cursive";
+    ctx.font= radius*0.15 + "px cursive";
     ctx.textAlign= "center";
     ctx.textBaseline= "middle"
     for (let i = 1; i< 13; i++){
